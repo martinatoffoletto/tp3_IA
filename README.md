@@ -29,12 +29,6 @@ python ga.py
 
 # Corrida reproducible, con población inicial heurística y sin log
 python ga.py --seed 1 --init heuristic --quiet
-
-# Tests unitarios
-python -m unittest test_ga -v
-
-# Experimentos: soluciones exactas por fuerza bruta + 30 corridas por método
-python experimentos.py --corridas 30
 ```
 
 > En Windows, si la consola muestra mal los acentos, ejecutá antes `set PYTHONIOENCODING=utf-8` (cmd) o `$env:PYTHONIOENCODING="utf-8"` (PowerShell).
@@ -69,8 +63,6 @@ Respuesta: el editor Vim lo usa el Developer.
 | Archivo | Contenido |
 |---|---|
 | `ga.py` | El algoritmo genético: clases `Phenotype` (individuo) y `Riddle` (proceso evolutivo) |
-| `test_ga.py` | 14 tests unitarios: fitness, validez de los operadores, condiciones de corte y convergencia |
-| `experimentos.py` | Cálculo de todas las soluciones exactas por fuerza bruta y corridas con varias semillas |
 | `Informe-TP3-AlgoritmosGeneticos.docx` | Informe con la justificación de cada tarea, los resultados y las conclusiones |
 | `dev_ga_base.py` | Estructura base provista por la cátedra (`ga.py` parte de ella) |
 | `consigna/` | Enunciado del TP (PDF y DOCX) |
@@ -90,15 +82,6 @@ Respuesta: el editor Vim lo usa el Developer.
 **Fitness:** +1 por pista cumplida, −1 por pista incumplida y −1 por gen inválido. El máximo es 14 (pistas 2 a 15).
 
 **Interpretación de la pista 6:** "a la derecha" se toma como *inmediatamente* a la derecha.
-
-## Resultados
-
-En 30 corridas con población de 1000:
-
-| Generación | Éxito | Generaciones (promedio) | Tiempo por corrida |
-|---|---|---|---|
-| Aleatoria | 29/30 | 15,0 | ~0,6 s |
-| Heurística | 30/30 | 11,8 | ~0,4 s |
 
 ## Respuesta
 
