@@ -51,9 +51,15 @@ editor =      {'001' : 'Brackets',     '010' : 'Sublime Text',  '011' : 'Vim',  
 
 N_HOUSES = 5
 ATTRIBUTES = [colors, prefession, languaje, database, editor]
-ATTRIBUTE_NAMES = ['Color', 'Profesion', 'Lenguaje', 'Base de datos', 'Editor']
+ATTRIBUTE_NAMES = ['Color', 'Profesión', 'Lenguaje', 'Base de datos', 'Editor']
 CODES = ['001', '010', '011', '100', '101']
 COLOR, PROFESSION, LANGUAGE, DATABASE, EDITOR = range(5)
+
+# Los diccionarios de arriba conservan los valores de dev_ga_base.py; esta tabla
+# solo traduce al castellano lo que se muestra al final de la corrida.
+ES = {'red': 'Rojo', 'blue': 'Azul', 'green': 'Verde', 'white': 'Blanco', 'yellow': 'Amarillo',
+      'Mathematician': 'Matemático', 'Hacker': 'Hacker', 'Engineer': 'Ingeniero',
+      'Analyst': 'Analista', 'Developer': 'Desarrollador'}
 
 # Pistas 2..15 (la 1 la garantiza la estructura del cromosoma).
 # p = posicion (0..4) de la casa donde aparece cada valor; todos los valores son unicos entre atributos.
@@ -190,11 +196,11 @@ class Phenotype:
         return self.score == MAX_SCORE
 
     def who_uses(self, editor_name='Vim'):
-        return next(house[PROFESSION] for house in self.decode() if house[EDITOR] == editor_name)
+        return ES[next(house[PROFESSION] for house in self.decode() if house[EDITOR] == editor_name)]
 
     def table(self):
         header = ['Casa'] + ATTRIBUTE_NAMES
-        rows = [[str(i + 1)] + house for i, house in enumerate(self.decode())]
+        rows = [[str(i + 1)] + [ES.get(v, v) for v in house] for i, house in enumerate(self.decode())]
         widths = [max(len(r[c]) for r in [header] + rows) for c in range(len(header))]
         fmt = lambda r: ' | '.join(v.ljust(w) for v, w in zip(r, widths))
         return '\n'.join([fmt(header), '-+-'.join('-' * w for w in widths)] + [fmt(r) for r in rows])

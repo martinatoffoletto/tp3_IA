@@ -1,7 +1,7 @@
 # TP3 – Algoritmos Genéticos: ¿Quién usa el editor Vim?
 
 **UADE – 3.4.096 Inteligencia Artificial**
-Docente: Parkinson, Christian Aníbal
+Docente: Parkinson, Christian
 
 ## Integrantes
 
@@ -47,15 +47,15 @@ python ga.py --seed 1 --init heuristic --quiet
 ### Ejemplo de salida
 
 ```
-Casa | Color  | Profesion     | Lenguaje   | Base de datos | Editor
------+--------+---------------+------------+---------------+-------------
-1    | blue   | Developer     | Java       | Redis         | Vim
-2    | yellow | Analyst       | JavaScript | Cassandra     | Atom
-3    | red    | Mathematician | C#         | HBase         | Notepad++
-4    | white  | Hacker        | Python     | Neo4j         | Sublime Text
-5    | green  | Engineer      | C++        | MongoDB       | Brackets
+Casa | Color    | Profesión     | Lenguaje   | Base de datos | Editor
+-----+----------+---------------+------------+---------------+-------------
+1    | Azul     | Desarrollador | Java       | Redis         | Vim
+2    | Amarillo | Analista      | JavaScript | Cassandra     | Atom
+3    | Rojo     | Matemático    | C#         | HBase         | Notepad++
+4    | Blanco   | Hacker        | Python     | Neo4j         | Sublime Text
+5    | Verde    | Ingeniero     | C++        | MongoDB       | Brackets
 
-Respuesta: el editor Vim lo usa el Developer.
+Respuesta: el editor Vim lo usa el Desarrollador.
 ```
 
 ## Estructura del proyecto
